@@ -11,12 +11,14 @@ import { IndexComponent } from './index/index.component';
 import { IntoComponent } from './into/into.component';
 import { TranHistoryComponent } from './tran-history/tran-history.component';
 import { OrdersHistoryComponent } from './orders-history/orders-history.component';
+import { TermsComponent } from './terms/terms.component';
 
 const appRoutes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'into', component: IntoComponent },
   { path: 'account', component: TranHistoryComponent },
-  { path: 'orders', component: OrdersHistoryComponent }
+  { path: 'orders', component: OrdersHistoryComponent },
+  { path: 'trc', component: TermsComponent }
 ];
 
 @NgModule({
@@ -25,7 +27,8 @@ const appRoutes: Routes = [
     IndexComponent,
     IntoComponent,
     TranHistoryComponent,
-    OrdersHistoryComponent
+    OrdersHistoryComponent,
+    TermsComponent
   ],
   imports: [
     BrowserModule,
