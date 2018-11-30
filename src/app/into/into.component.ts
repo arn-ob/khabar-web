@@ -17,7 +17,7 @@ export class IntoComponent implements OnInit {
 
   onFileChanged(event) {
     const file = event.target.files[0];
-    this.req.picture_upload('fileupload', file, 'he', 'profile').then(res => {
+    this.req.picture_upload('upload', file, 'he', 'profile').then(res => {
       if (res.text() === 'true') {
         console.log('upload done');
       }

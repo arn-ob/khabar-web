@@ -8,7 +8,7 @@ import { AotCompiler } from '@angular/compiler';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
-
+  checkout = false;
   constructor(
     private app: AppComponent
   ) { }
