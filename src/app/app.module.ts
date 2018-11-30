@@ -12,10 +12,10 @@ import { IntoComponent } from './into/into.component';
 import { TranHistoryComponent } from './tran-history/tran-history.component';
 import { OrdersHistoryComponent } from './orders-history/orders-history.component';
 import { TermsComponent } from './terms/terms.component';
+import { ReqServiceService } from './service/req-service.service';
 
 const appRoutes: Routes = [
-  { path: '', component: IndexComponent },
-  { path: 'into', component: IntoComponent },
+  { path: '', component: IntoComponent },
   { path: 'account', component: TranHistoryComponent },
   { path: 'orders', component: OrdersHistoryComponent },
   { path: 'trc', component: TermsComponent }
@@ -42,7 +42,9 @@ const appRoutes: Routes = [
       },
     )
   ],
-  providers: [],
+  providers: [
+    ReqServiceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,11 @@
-<div class="wrapper">
+
+<!-- Show the index -->
+<div *ngIf="index">
+  <app-index></app-index>
+</div>
+
+<!-- Show the panel -->
+<div class="wrapper" *ngIf="!index">
   <!-- Sidebar  -->
   <nav id="sidebar">
     <div class="sidebar-header">
@@ -28,5 +35,4 @@
   <div id="content">
     <router-outlet></router-outlet>
   </div>
-
 </div>

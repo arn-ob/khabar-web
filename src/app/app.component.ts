@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  index = true;
   title = 'app';
+
+  show() {
+    this.index = false;
+  }
 }

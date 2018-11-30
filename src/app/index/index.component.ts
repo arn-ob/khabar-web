@@ -1,4 +1,6 @@
+import { AppComponent } from './../app.component';
 import { Component, OnInit } from '@angular/core';
+import { AotCompiler } from '@angular/compiler';
 
 @Component({
   selector: 'app-index',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private app: AppComponent
+  ) { }
 
   ngOnInit() {
   }
 
+  click() {
+    localStorage.setItem('index', 'false');
+    this.app.show();
+  }
 }
