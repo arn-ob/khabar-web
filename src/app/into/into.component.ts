@@ -17,12 +17,10 @@ export class IntoComponent implements OnInit {
 
   onFileChanged(event) {
     const file = event.target.files[0];
-    console.log(file);
-    const uploadData = new FormData();
-    uploadData.append('image', file);
-    uploadData.append('image_name', 'test1');
-    this.req.request('fileupload', uploadData).then( res => {
-      console.log(res);
+    this.req.picture_upload('fileupload', file, 'he', 'profile').then(res => {
+      if (res.text() === 'true') {
+        console.log('upload done');
+      }
     });
   }
 }
