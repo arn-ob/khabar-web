@@ -8,14 +8,18 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   // index switching
   index = true;
-
+  sign = false;
   title = 'app';
 
   ngOnInit() {
   }
 
 
-  show() {
+  show_index() {
     this.index = false;
+  }
+
+  show_sign_nav() {
+    this.sign = true;
   }
 }

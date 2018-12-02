@@ -2,6 +2,7 @@ import { AppComponent } from './../app.component';
 import { Component, OnInit } from '@angular/core';
 import { AotCompiler } from '@angular/compiler';
 import { ReqServiceService } from '../service/req-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-index',
@@ -9,19 +10,27 @@ import { ReqServiceService } from '../service/req-service.service';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
+  // server url get
   url: any;
+
+  // conditions
   checkout = false;
+
   constructor(
     private app: AppComponent,
-    private req: ReqServiceService
+    private req: ReqServiceService,
+    private router: Router
   ) { }
 
   ngOnInit() {
     this.url = this.req.url;
   }
 
-  click() {
+  sign() {
     localStorage.setItem('index', 'false');
-    this.app.show();
+    this.app.show_index();
+    this.app.show_sign_nav();
+    this.router.navigate(['/login']);
+
   }
 }

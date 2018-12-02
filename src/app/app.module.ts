@@ -13,12 +13,14 @@ import { TranHistoryComponent } from './tran-history/tran-history.component';
 import { OrdersHistoryComponent } from './orders-history/orders-history.component';
 import { TermsComponent } from './terms/terms.component';
 import { ReqServiceService } from './service/req-service.service';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
   { path: '', component: IntoComponent },
   { path: 'account', component: TranHistoryComponent },
   { path: 'orders', component: OrdersHistoryComponent },
-  { path: 'trc', component: TermsComponent }
+  { path: 'trc', component: TermsComponent },
+  { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({
@@ -28,7 +30,8 @@ const appRoutes: Routes = [
     IntoComponent,
     TranHistoryComponent,
     OrdersHistoryComponent,
-    TermsComponent
+    TermsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -12,9 +12,12 @@
       <h3>Khabar</h3>
     </div>
 
-    <ul class="list-unstyled components">
+    <ul class="list-unstyled components" *ngIf="!sign">
       <li class="active">
         <a routerLink="/into">You</a>
+      </li>
+      <li class="active">
+        <a routerLink="/post">Khabar Post</a>
       </li>
       <li>
         <a routerLink="/account">Purchase History</a>
@@ -27,6 +30,11 @@
       </li>
       <li>
         <a href="#">Terms & Condition</a>
+      </li>
+    </ul>
+    <ul class="list-unstyled components" *ngIf="sign">
+      <li class="active">
+        <a routerLink="/">Go Back</a>
       </li>
     </ul>
   </nav>
