@@ -16,7 +16,7 @@ import { ReqServiceService } from './service/req-service.service';
 import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
-  { path: '', component: IntoComponent },
+  { path: 'into', component: IntoComponent },
   { path: 'account', component: TranHistoryComponent },
   { path: 'orders', component: OrdersHistoryComponent },
   { path: 'trc', component: TermsComponent },

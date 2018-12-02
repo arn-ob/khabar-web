@@ -27,6 +27,9 @@ export class LoginComponent implements OnInit {
   add2: any;
   city: any;
 
+  // show filename
+  filename = 'Choose Image';
+
   constructor(
     private req: ReqServiceService,
     private route: Router
@@ -41,38 +44,58 @@ export class LoginComponent implements OnInit {
     this.in = false;
   }
 
-  select(event) {
-    this.image = event;
+  select(events) {
+    this.image = events;
+    this.filename = events.target.files[0].name;
   }
-
-
-  upload_pictue() {
-    const file = this.image.target.files[0];
-    const filename = this.name + '-' + this.user;
-    this.req.picture_upload('upload', file, filename, 'img_profile').then(res => {
-      if (res.text() === 'true') {
-        console.log('done');
-        this.upload_info();
-      } else {
-        console.log('fail');
-      }
-    });
-  }
-
 
   signup() {
-    this.upload_pictue();
+    if (this.image === undefined) {
+      console.log('problem');
+    } else {
+      this.upload_info();
+    }
   }
 
+  // 1st step
   upload_info() {
     const u_id = uuid.v4(this.email);
     // tslint:disable-next-line:max-line-length
-    const sql = { 'sql': 'CALL `signup`("' + this.user + '","' + this.pass + '","' + this.email + '","' + this.add1 + '","' + this.add2 + '","' + this.city + '","' + u_id + '","' + this.name + '")'};
+    const sql = { 'sql': 'CALL `signup`("' + this.user + '","' + this.pass + '","' + this.email + '","' + this.add1 + '","' + this.add2 + '","' + this.city + '","' + u_id + '","' + this.name + '")' };
     console.log(sql);
     this.req.request('return', sql).then(
       response => {
+        this.upload_pictue();
         console.log(response.json());
       });
+  }
+
+  // 2nd step
+  upload_pictue() {
+      const file = this.image.target.files[0];
+      console.log(file);
+      const filename = this.name + '-' + this.user;
+      this.req.picture_upload('upload', file, filename, 'img_profile').then(res => {
+        if (res.text() === 'true') {
+          console.log('done');
+          this.clear();
+          this.in = true;
+        } else {
+          console.log('fail');
+        }
+      });
+  }
+
+  clear() {
+    this.filename = 'Choose Image';
+    this.image = undefined;
+    this.email = undefined;
+    this.name = undefined;
+    this.user = undefined;
+    this.pass = undefined;
+    this.add1 = undefined;
+    this.add2 = undefined;
+    this.city = undefined;
   }
 
 

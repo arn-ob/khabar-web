@@ -14,6 +14,10 @@ export class AppComponent implements OnInit {
   ngOnInit() {
   }
 
+  indexF() {
+    this.index = true;
+  }
+
 
   show_index() {
     this.index = false;
