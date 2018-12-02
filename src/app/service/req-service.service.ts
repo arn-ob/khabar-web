@@ -5,8 +5,8 @@ import { Http } from '@angular/http';
   providedIn: 'root'
 })
 export class ReqServiceService {
-  url = 'http://localhost/khabar-api/';
-
+  // url = 'http://localhost/khabar-api/';
+  url = 'http://api.stupidarnob.com/khabar';
   constructor(
     private http: Http
   ) { }
@@ -18,7 +18,7 @@ export class ReqServiceService {
    */
   request(where, paramiter) {
     const ext = '.php';
-    return this.http.post(this.url + where + ext, paramiter).toPromise();
+    return this.http.post(this.url + '/' + where + ext, paramiter).toPromise();
   }
 
   /**
@@ -26,7 +26,7 @@ export class ReqServiceService {
    * @param where this is where you wanted or which operation u wanted to do.
    * @param file The choose file/image
    * @param filename the filename or image name
-   * @param dir_name upload dir. Currently availabe profile, upload, image, khabar
+   * @param dir_name upload dir. Currently availabe img_profile, img_upload, img_image, img_khabar
    */
   picture_upload(where, file, filename, dir_name) {
     const formdata = new FormData();
@@ -34,6 +34,6 @@ export class ReqServiceService {
     formdata.append('image_name', filename);
     formdata.append('dir', dir_name);
     const ext = '.php';
-    return this.http.post(this.url + where + ext, formdata).toPromise();
+    return this.http.post(this.url + '/' + where + ext, formdata).toPromise();
   }
 }

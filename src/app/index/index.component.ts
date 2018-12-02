@@ -1,6 +1,7 @@
 import { AppComponent } from './../app.component';
 import { Component, OnInit } from '@angular/core';
 import { AotCompiler } from '@angular/compiler';
+import { ReqServiceService } from '../service/req-service.service';
 
 @Component({
   selector: 'app-index',
@@ -8,12 +9,15 @@ import { AotCompiler } from '@angular/compiler';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
+  url: any;
   checkout = false;
   constructor(
-    private app: AppComponent
+    private app: AppComponent,
+    private req: ReqServiceService
   ) { }
 
   ngOnInit() {
+    this.url = this.req.url;
   }
 
   click() {
