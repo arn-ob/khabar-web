@@ -6,7 +6,7 @@ import { Http } from '@angular/http';
 })
 export class ReqServiceService {
   // url = 'http://localhost/khabar-api/';
-  url = 'http://api.stupidarnob.com/khabar';
+  url = 'https://api.stupidarnob.com/khabar';
   constructor(
     private http: Http
   ) { }
