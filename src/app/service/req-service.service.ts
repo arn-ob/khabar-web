@@ -13,7 +13,7 @@ export class ReqServiceService {
 
   /**
    *
-   * @param where this is where you wanted or which operation u wanted to do.
+   * @param where this is where you wanted or which operation u wanted to do. Available place return, status, upload
    * @param paramiter the body of the message
    */
   request(where, paramiter) {

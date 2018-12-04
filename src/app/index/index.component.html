@@ -1,6 +1,6 @@
 <div *ngIf="!checkout">
 
-  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm fixed-top mb-3">
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm fixed-top mb-3" *ngIf="!isSign">
     <h5 class="my-0 mr-md-auto font-weight-normal">Khabar</h5>
     <button class="btn btn-outline-primary ml-1 mr-1" href="#" (click)="sign()">Login</button>
     <button class="btn btn-outline-primary ml-1 mr-1" href="#">Subscription</button>
@@ -23,9 +23,9 @@
     <div class="container">
 
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4" *ngFor="let r of result">
           <div class="card mb-4 shadow-sm">
-            <img class="card-img-top" src="{{url}}/img_khabar/he.jpg" alt="Card image cap"
+            <img class="card-img-top" src="{{url}}/img_khabar/{{r.img_name}}" alt="Card image cap"
               height="300px" width="200px">
             <div class="card-body">
               <p class="card-text" style="color: black">This is a wider card with supporting text below as a natural
@@ -48,7 +48,7 @@
 
   <footer class="footer">
 
-    <p class="text-center mt-2">Khabar Git v1.2 Upload-Date-Time 12/3-1:08</p>
+    <p class="text-center mt-2">Khabar Git v1.2 Upload-Date-Time 12/4-10:20PM</p>
 
   </footer>
 

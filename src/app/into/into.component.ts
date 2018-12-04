@@ -7,14 +7,28 @@ import { ReqServiceService } from '../service/req-service.service';
   styleUrls: ['./into.component.css']
 })
 export class IntoComponent implements OnInit {
-
+  user_details: { [k: string]: any } = {};
+  url: any;
+  filename: any;
+  view = false;
   constructor(
     private req: ReqServiceService
   ) { }
 
   ngOnInit() {
+    this.url = this.req.url;
     const userid = localStorage.getItem('id');
-    console.log('userid');
+    console.log(userid);
+    const sql = {'sql': ' CALL `user_details`("' + userid + '")'};
+    this.req.request('return', sql).then(
+      Response => {
+        this.user_details = Response.json()[0];
+        localStorage.setItem('username', this.user_details.username);
+        this.filename = this.user_details.profile_pic;
+        this.view = true;
+        console.log(this.filename);
+      }
+    );
   }
 
   onFileChanged(event) {

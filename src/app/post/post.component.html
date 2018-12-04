@@ -1,0 +1,63 @@
+<div class="jumbotron">
+  <h1 class="display-4">Khabar Post</h1>
+</div>
+
+<h2>Give Details About Khabar</h2>
+
+<form *ngIf="!submit">
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" [(ngModel)]="name" name="name">
+  </div>
+  <div class="form-group">
+    <label>Khabar Name</label>
+    <input type="text" class="form-control" [(ngModel)]="khabarName" name="khabarName">
+  </div>
+  <div class="form-group">
+    <label>Khabar Type</label>
+    <input type="text" class="form-control" [(ngModel)]="khabartype" name="khabartype">
+  </div>
+  <div class="form-group">
+    <label>Khabar Price</label>
+    <input type="text" class="form-control" [(ngModel)]="khabarprice" name="khabarprice">
+  </div>
+  <div class="form-group">
+    <label>Khabar Quantity</label>
+    <input type="text" class="form-control" [(ngModel)]="khabarqnty" name="khabarqnty">
+  </div>
+  <div class="form-group">
+    <label>Details</label>
+    <input class="form-control" [(ngModel)]="khabardetails" name="khabardetails">
+  </div>
+  <div class="form-group mt-1">
+    <label>Khabar image 1 (This Image is Cover Image)</label>
+    <div class="custom-file">
+      <input type="file" class="custom-file-input" id="inputGroupFile02" (change)="select($event, '1')">
+      <label class="custom-file-label">{{filename1}}</label>
+    </div>
+  </div>
+
+  <div class="form-group mt-1">
+    <label>Khabar image 1</label>
+    <div class="custom-file">
+      <input type="file" class="custom-file-input" id="inputGroupFile02" (change)="select($event, '2')">
+      <label class="custom-file-label">{{filename2}}</label>
+    </div>
+  </div>
+
+  <div class="form-group mt-1">
+    <label>Khabar image 1</label>
+    <div class="custom-file">
+      <input type="file" class="custom-file-input" id="inputGroupFile02" (change)="select($event, '3')">
+      <label class="custom-file-label">{{filename3}}</label>
+    </div>
+  </div>
+
+  <button type="button" class="btn btn-primary btn-lg btn-block" (click)="upload_pictue()">Upload Post</button>
+
+</form>
+
+<div *ngIf="submit">
+  <img class="rounded mx-auto d-block" src="http://api.stupidarnob.com/khabar/loading/loading.gif" />
+  <p class="text-center">Uploading</p>
+</div>

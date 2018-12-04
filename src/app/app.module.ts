@@ -15,12 +15,17 @@ import { TermsComponent } from './terms/terms.component';
 import { ReqServiceService } from './service/req-service.service';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { PostComponent } from './post/post.component';
+import { PostHistoryComponent } from './post-history/post-history.component';
 
 const appRoutes: Routes = [
   { path: 'into', component: IntoComponent },
+  { path: 'khabar-post', component: PostComponent },
   { path: 'account', component: TranHistoryComponent },
   { path: 'orders', component: OrdersHistoryComponent },
   { path: 'trc', component: TermsComponent },
+  { path: 'index', component: IndexComponent },
+  { path: 'history-post', component: PostHistoryComponent },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent }
 ];
@@ -34,7 +39,9 @@ const appRoutes: Routes = [
     OrdersHistoryComponent,
     TermsComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    PostComponent,
+    PostHistoryComponent
   ],
   imports: [
     BrowserModule,

@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   // sign up
   u_id: any;
   image: any;
+  image_ext: any;
   email: any;
   name: any;
   user: any;
@@ -51,6 +52,7 @@ export class LoginComponent implements OnInit {
   select(events) {
     this.image = events;
     this.filename = events.target.files[0].name;
+    this.image_ext = this.filename.substr( this.filename.length - 4);
   }
 
   signup() {
@@ -64,8 +66,9 @@ export class LoginComponent implements OnInit {
   // 1st step
   upload_info() {
     const u_id = uuid.v4(this.email);
+    const filename = this.name + '-' + this.user + this.image_ext;
     // tslint:disable-next-line:max-line-length
-    const sql = { 'sql': 'CALL `signup`("' + this.user + '","' + this.pass + '","' + this.email + '","' + this.add1 + '","' + this.add2 + '","' + this.city + '","' + u_id + '","' + this.name + '")' };
+    const sql = { 'sql': 'CALL `signup`("' + this.user + '","' + this.pass + '","' + this.email + '","' + this.add1 + '","' + this.add2 + '","' + this.city + '","' + u_id + '","' + this.name + '","' + filename + '")' };
     console.log(sql);
     this.req.request('return', sql).then(
       response => {
@@ -76,18 +79,18 @@ export class LoginComponent implements OnInit {
 
   // 2nd step
   upload_pictue() {
-      const file = this.image.target.files[0];
-      console.log(file);
-      const filename = this.name + '-' + this.user;
-      this.req.picture_upload('upload', file, filename, 'img_profile').then(res => {
-        if (res.text() === 'true') {
-          console.log('done');
-          this.clear();
-          this.in = true;
-        } else {
-          console.log('fail');
-        }
-      });
+    const file = this.image.target.files[0];
+    console.log(file);
+    const filename = this.name + '-' + this.user;
+    this.req.picture_upload('upload', file, filename, 'img_profile').then(res => {
+      if (res.text() === 'true') {
+        console.log('done');
+        this.clear();
+        this.in = true;
+      } else {
+        console.log('fail');
+      }
+    });
   }
 
   clear() {
@@ -109,13 +112,20 @@ export class LoginComponent implements OnInit {
     console.log(sql);
     this.req.request('return', sql).then(
       response => {
-        this.return_store = response.json()[0];
-        localStorage.setItem('login', 'true');
-        localStorage.setItem('id', this.return_store.id);
-        this.app.isSign(true);
-        this.route.navigate(['/into']);
+        console.log(response.json()[0]);
+        if (response.json()[0] === undefined) {
+          console.log('Login not found');
+        } else {
+          this.return_store = response.json()[0];
+          localStorage.setItem('login', 'true');
+          localStorage.setItem('id', this.return_store.u_id);
+          this.app.isSign(true);
+          this.route.navigate(['/into']);
+        }
       }
-    );
+    ).catch(err => {
+      console.log('Error Found');
+    });
   }
 
 

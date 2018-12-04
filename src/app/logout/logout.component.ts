@@ -8,16 +8,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./logout.component.css']
 })
 export class LogoutComponent implements OnInit {
-
+  // un-user componenet
   constructor(
     private app: AppComponent,
     private route: Router
   ) { }
 
   ngOnInit() {
+    localStorage.clear();
     this.app.isIndex(true);
     this.app.isSign(false);
-    this.route.navigate(['/']);
   }
 
 }

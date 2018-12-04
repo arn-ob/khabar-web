@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   // index switching
-  index = true;
-  sign = false;
+  index = false;
+  sign;
   title = 'app';
 
   constructor(
@@ -18,10 +18,14 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     const userid = localStorage.getItem('id');
-    if (userid !== undefined) {
+    console.log(userid);
+    if (userid === null) {
+      this.isIndex(true);
+      this.isSign(false);
+    } else {
       this.isSign(true);
       this.isIndex(false);
-      this.route.navigate(['/into']);
+      this.route.navigate(['/history-post']); // after finish dev change it to /into
     }
   }
 
@@ -31,5 +35,11 @@ export class AppComponent implements OnInit {
 
   isIndex(sh: boolean) {
     this.index = sh;
+  }
+
+  logout() {
+    localStorage.clear();
+    this.isIndex(true);
+      this.isSign(false);
   }
 }
