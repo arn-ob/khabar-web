@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
     } else {
       this.isSign(true);
       this.isIndex(false);
-      this.route.navigate(['/history-post']); // after finish dev change it to /into
+      this.route.navigate(['/index']); // after finish dev change it to /into
     }
   }
 

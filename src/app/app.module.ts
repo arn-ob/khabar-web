@@ -17,6 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { PostComponent } from './post/post.component';
 import { PostHistoryComponent } from './post-history/post-history.component';
+import { PostHistoryViewComponent } from './post-history-view/post-history-view.component';
 
 const appRoutes: Routes = [
   { path: 'into', component: IntoComponent },
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
   { path: 'trc', component: TermsComponent },
   { path: 'index', component: IndexComponent },
   { path: 'history-post', component: PostHistoryComponent },
+  { path: 'history-post-view', component: PostHistoryViewComponent },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent }
 ];
@@ -41,7 +43,8 @@ const appRoutes: Routes = [
     LoginComponent,
     LogoutComponent,
     PostComponent,
-    PostHistoryComponent
+    PostHistoryComponent,
+    PostHistoryViewComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,50 @@
+<section class="jumbotron text-center" *ngIf="isShow">
+  <div class="container">
+    <h1 class="jumbotron-heading">{{result.name}}</h1>
+    <p class="lead text-muted">{{result.khabar_details}}</p>
+  </div>
+</section>
+
+<div class="album py-5 bg-light" *ngIf="isShow">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img class="card-img-top" src="{{url}}/img_khabar/{{result.khabar_img1}}" alt="Card image cap">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted">Type: {{result.khabar_type}}</small>
+              <small class="text-muted">Price {{result.khabar_price}}</small>
+              <small class="text-muted">Qty: {{result.khabar_qnty}}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <img class="card-img-top" src="{{url}}/img_khabar/{{result.khabar_img2}}" alt="Card image cap">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">Type: {{result.khabar_type}}</small>
+                <small class="text-muted">Price {{result.khabar_price}}</small>
+                <small class="text-muted">Qty: {{result.khabar_qnty}}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+              <img class="card-img-top" src="{{url}}/img_khabar/{{result.khabar_img3}}" alt="Card image cap">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <small class="text-muted">Type: {{result.khabar_type}}</small>
+                  <small class="text-muted">Price {{result.khabar_price}}</small>
+                  <small class="text-muted">Qty: {{result.khabar_qnty}}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</div>
