@@ -12,7 +12,7 @@
       <h3>Khabar</h3>
     </div>
 
-    <ul class="list-unstyled components" *ngIf="!sign">
+    <ul class="list-unstyled components" *ngIf="sign">
       <li class="active">
         <a routerLink="/into">You</a>
       </li>
@@ -31,8 +31,11 @@
       <li>
         <a href="#">Terms & Condition</a>
       </li>
+      <li>
+        <a routerLink="/logout">Logout</a>
+      </li>
     </ul>
-    <ul class="list-unstyled components" *ngIf="sign">
+    <ul class="list-unstyled components" *ngIf="!sign">
       <li class="active">
         <a (click)="indexF()">Go Back</a>
       </li>

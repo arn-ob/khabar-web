@@ -1,3 +1,4 @@
+import { AppComponent } from './../app.component';
 import { Component, OnInit } from '@angular/core';
 import { ReqServiceService } from '../service/req-service.service';
 import { Router } from '@angular/router';
@@ -9,8 +10,10 @@ import * as uuid from 'uuid';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
   in = true;
   url: any;
+
   // sign in
   username: any;
   password: any;
@@ -32,7 +35,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private req: ReqServiceService,
-    private route: Router
+    private route: Router,
+    private app: AppComponent
   ) { }
 
   ngOnInit() {
@@ -108,8 +112,8 @@ export class LoginComponent implements OnInit {
         this.return_store = response.json()[0];
         localStorage.setItem('login', 'true');
         localStorage.setItem('id', this.return_store.id);
-        this.route.navigate(['/']);
-        console.log(this.return_store);
+        this.app.isSign(true);
+        this.route.navigate(['/into']);
       }
     );
   }

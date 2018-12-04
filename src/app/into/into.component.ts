@@ -13,6 +13,8 @@ export class IntoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    const userid = localStorage.getItem('id');
+    console.log('userid');
   }
 
   onFileChanged(event) {

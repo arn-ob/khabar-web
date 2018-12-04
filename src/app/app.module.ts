@@ -14,13 +14,15 @@ import { OrdersHistoryComponent } from './orders-history/orders-history.componen
 import { TermsComponent } from './terms/terms.component';
 import { ReqServiceService } from './service/req-service.service';
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 
 const appRoutes: Routes = [
   { path: 'into', component: IntoComponent },
   { path: 'account', component: TranHistoryComponent },
   { path: 'orders', component: OrdersHistoryComponent },
   { path: 'trc', component: TermsComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'logout', component: LogoutComponent }
 ];
 
 @NgModule({
@@ -31,7 +33,8 @@ const appRoutes: Routes = [
     TranHistoryComponent,
     OrdersHistoryComponent,
     TermsComponent,
-    LoginComponent
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,7 @@ const appRoutes: Routes = [
       appRoutes,
       {
         enableTracing: false, // <-- debugging purposes only
-        useHash: true
+        // useHash: true
       },
     )
   ],

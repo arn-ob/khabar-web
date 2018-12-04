@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,19 +12,24 @@ export class AppComponent implements OnInit {
   sign = false;
   title = 'app';
 
+  constructor(
+    private route: Router
+  ) { }
+
   ngOnInit() {
+    const userid = localStorage.getItem('id');
+    if (userid !== undefined) {
+      this.isSign(true);
+      this.isIndex(false);
+      this.route.navigate(['/into']);
+    }
   }
 
-  indexF() {
-    this.index = true;
+  isSign(tf: boolean) {
+    this.sign = tf;
   }
 
-
-  show_index() {
-    this.index = false;
-  }
-
-  show_sign_nav() {
-    this.sign = true;
+  isIndex(sh: boolean) {
+    this.index = sh;
   }
 }

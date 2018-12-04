@@ -28,8 +28,8 @@ export class IndexComponent implements OnInit {
 
   sign() {
     localStorage.setItem('index', 'false');
-    this.app.show_index();
-    this.app.show_sign_nav();
+    this.app.isIndex(false);
+    this.app.isSign(false);
     this.router.navigate(['/login']);
 
   }
