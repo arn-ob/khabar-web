@@ -1,0 +1,16 @@
+<h3>My Profile</h3>
+<div class="jumbotron" *ngIf="isLoad">
+  <div class="row">
+    <div class="col-3">
+      <img src="{{url}}/img_profile/{{result.profile_pic}}" alt="name of image holder" height="300px" width="300px">
+    </div>
+    <div class="col">
+      <h1 class="display-4">{{result.name}}</h1>
+      <p class="lead">{{result.email}}</p>
+      <p class="lead">{{result.city}}</p>
+      <hr class="my-4">
+      <p>{{result.add1}}</p>
+      <p>{{result.add2}}</p>
+    </div>
+  </div>
+</div>

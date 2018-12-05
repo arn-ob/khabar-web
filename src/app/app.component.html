@@ -25,23 +25,23 @@
         <a routerLink="/history-post">Post History</a>
       </li>
       <li>
-        <a routerLink="/account">Purchase History</a>
+        <a routerLink="/orders">Order History</a>
       </li>
       <li>
-        <a routerLink="/orders">Khabar Order</a>
+        <a routerLink="/account">Account Trx</a>
       </li>
       <li>
-        <a href="#">My Profile</a>
+        <a routerLink="/profile">My Profile</a>
       </li>
       <li>
-        <a href="#">Terms & Condition</a>
+        <a routerLink="/trc">Terms & Condition</a>
       </li>
       <li>
         <a (click)="logout()">Logout</a>
       </li>
     </ul>
     <ul class="list-unstyled components" *ngIf="!sign">
-      <li class="active">
+      <li>
         <a (click)="indexF()">Go Back</a>
       </li>
     </ul>

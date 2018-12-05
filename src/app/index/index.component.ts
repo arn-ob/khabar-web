@@ -15,6 +15,7 @@ export class IndexComponent implements OnInit {
   url: any;
   result: any;
   isSign = false;
+  loading = true;
   // conditions
   checkout = false;
   cart_list = [];
@@ -62,6 +63,7 @@ export class IndexComponent implements OnInit {
     this.req.request('return', sql).then(res => {
       // console.log(res.json());
       this.result = res.json();
+      this.loading = false;
     });
   }
 
@@ -73,15 +75,7 @@ export class IndexComponent implements OnInit {
 
   process() {
     this.checkout = true;
-    console.log(this.cart_list);
-    // console.log('Process Start');
-    // if (this.cart_list.length === 0) {
-    //   this.checkout = false;
-    //   console.log('end');
-    // } else {
-    //   console.log(this.cart_list.pop()); // do process Here
-    //   this.process();
-    // }
+    // console.log(this.cart_list);
   }
 
   login_user() {
@@ -93,7 +87,7 @@ export class IndexComponent implements OnInit {
       this.store_order = this.cart_list.pop();
       // tslint:disable-next-line:max-line-length
       const sql = { 'sql': 'CALL `order_u`("' + this.order_id + '", "' + this.id + '", "' + this.store_order.price + '", "1", "' + this.o_address + '", "' + this.o_phn + '",  "' + this.store_order.id + '")' };
-      console.log(sql);
+      // console.log(sql);
       this.req.request('status', sql).then(res => {
         if (res.json()[0].status === 'Done') {
           console.log('Done');
@@ -112,7 +106,7 @@ export class IndexComponent implements OnInit {
       this.store_order = this.cart_list.pop();
       // tslint:disable-next-line:max-line-length
       const sql = { 'sql': 'CALL `order_g`("' + this.order_id + '", "' + this.store_order.price + '", "1", "' + this.o_address + '", "' + this.o_phn + '",  "' + this.store_order.id + '")' };
-      console.log(sql);
+      // console.log(sql);
       this.req.request('status', sql).then(res => {
         if (res.json()[0].status === 'Done') {
           console.log('Done');

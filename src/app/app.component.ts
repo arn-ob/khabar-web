@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
     } else {
       this.isSign(true);
       this.isIndex(false);
-      this.route.navigate(['/index']); // after finish dev change it to /into
+      this.route.navigate(['/profile']); // after finish dev change it to /into
     }
   }
 
@@ -40,6 +40,11 @@ export class AppComponent implements OnInit {
   logout() {
     localStorage.clear();
     this.isIndex(true);
-      this.isSign(false);
+    this.isSign(false);
+  }
+
+  indexF() {
+    this.isIndex(true);
+    this.isSign(false);
   }
 }

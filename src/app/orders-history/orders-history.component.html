@@ -1,32 +1,60 @@
 <div class="jumbotron">
-    <h1 class="display-4">Order History</h1>
-    <p class="lead">Here you get the info of your order</p>
-  </div>
-  
-  
-  <table class="table table-borderless">
-      <caption>List of transaction</caption>
-      <thead>
-        <tr>
-          <th scope="col">Order ID</th>
-          <th scope="col">Description</th>
-          <th scope="col">From</th>
-          <th scope="col">Where</th>
-          <th scope="col">Date</th>
-          <th scope="col">Time</th>
-          <th scope="col">View</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
-          <td><button type="button" class="btn btn-light">Details</button></td>
-        </tr>
-      </tbody>
-    </table>
+  <h1 class="display-4">Order History</h1>
+  <p class="lead">Here you get the info of your order</p>
+</div>
+
+<hr>
+
+<h4>List of Order From User</h4>
+<table class="table table-borderless">
+  <caption>List of Order From Site Req User</caption>
+  <thead>
+    <tr>
+      <th scope="col">Order ID</th>
+      <th scope="col">Khabar Name</th>
+      <th scope="col">Khabar Type</th>
+      <th scope="col">User Number</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">View User</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let a of result_user">
+      <td>{{a.order_id}}</td>
+      <td>{{a.khabar_name}}</td>
+      <td>{{a.khabar_type}}</td>
+      <td>{{a.number}}</td>
+      <td>{{a.price}}</td>
+      <td>{{a.qnty}}</td>
+      <td><button type="button" class="btn btn-light">Details</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h4>List of Order From Guest</h4>
+<table class="table table-borderless">
+    <caption>List of Order From Site Req Guest</caption>
+    <thead>
+      <tr>
+        <th scope="col">Order ID</th>
+        <th scope="col">Khabar Name</th>
+        <th scope="col">Khabar Type</th>
+        <th scope="col">User Number</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of result_guest">
+        <td>{{a.order_id}}</td>
+        <td>{{a.khabar_name}}</td>
+        <td>{{a.khabar_type}}</td>
+        <td>{{a.number}}</td>
+        <td>{{a.price}}</td>
+        <td>{{a.qnty}}</td>
+      </tr>
+    </tbody>
+  </table>

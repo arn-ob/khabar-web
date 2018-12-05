@@ -35,13 +35,13 @@
 
   <section class="jumbotron text-right mt-4">
     <div class="container mt-4">
-      <h1 class="display-4" style="color: blue">Khabar App</h1>
-      <p class="lead" style="color: blue">This is a modified jumbotron that occupies the entire horizontal space of its
+      <h1 class="display-4" style="color: green">Khabar App</h1>
+      <p class="lead" style="color: green">This is a modified jumbotron that occupies the entire horizontal space of its
         parent.</p>
     </div>
   </section>
 
-  <div class="album py-5 bg-light">
+  <div class="album py-5 bg-light" *ngIf="!loading">
     <div class="container">
       <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm mb-3"
         *ngIf="isSign">
@@ -74,6 +74,11 @@
     </div>
   </div>
 </div>
+
+<div *ngIf="loading">
+    <img class="rounded mx-auto d-block" src="http://api.stupidarnob.com/khabar/loading/loading.gif" />
+    <p class="text-center">Loading</p>
+  </div>
 
 <div *ngIf="checkout">
 

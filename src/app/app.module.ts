@@ -18,13 +18,16 @@ import { LogoutComponent } from './logout/logout.component';
 import { PostComponent } from './post/post.component';
 import { PostHistoryComponent } from './post-history/post-history.component';
 import { PostHistoryViewComponent } from './post-history-view/post-history-view.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const appRoutes: Routes = [
+  { path: '', component: IntoComponent },
   { path: 'into', component: IntoComponent },
   { path: 'khabar-post', component: PostComponent },
   { path: 'account', component: TranHistoryComponent },
   { path: 'orders', component: OrdersHistoryComponent },
   { path: 'trc', component: TermsComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: 'index', component: IndexComponent },
   { path: 'history-post', component: PostHistoryComponent },
   { path: 'history-post-view', component: PostHistoryViewComponent },
@@ -44,7 +47,8 @@ const appRoutes: Routes = [
     LogoutComponent,
     PostComponent,
     PostHistoryComponent,
-    PostHistoryViewComponent
+    PostHistoryViewComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
