@@ -60,7 +60,7 @@ export class IndexComponent implements OnInit {
   get_post() {
     const sql = { 'sql': 'CALL `view_public_post`();' };
     this.req.request('return', sql).then(res => {
-      console.log(res.json());
+      // console.log(res.json());
       this.result = res.json();
     });
   }
